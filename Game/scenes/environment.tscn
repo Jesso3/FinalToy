@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bc1va1lj5onyd"]
+
+[ext_resource type="Texture2D" uid="uid://dsr54c3caeyhv" path="res://art/ground_stone.png" id="1_gdqlo"]
+[ext_resource type="Script" path="res://scripts/Walls.gd" id="1_lxemw"]
+
+[sub_resource type="Gradient" id="Gradient_8yodx"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.529412, 0.807843, 0.921569, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_brslm"]
+gradient = SubResource("Gradient_8yodx")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrrg7"]
+size = Vector2(747, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swgb6"]
+size = Vector2(88, 457)
+
+[node name="Environment" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sky" type="Sprite2D" parent="Background"]
+position = Vector2(343, 546.5)
+scale = Vector2(3.67969, 1309)
+texture = SubResource("GradientTexture1D_brslm")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="Texture" type="Sprite2D" parent="Floor"]
+position = Vector2(333, 1068)
+scale = Vector2(1.95526, 1.36411)
+texture = ExtResource("1_gdqlo")
+
+[node name="Shape" type="CollisionShape2D" parent="Floor"]
+position = Vector2(308, 1025)
+shape = SubResource("RectangleShape2D_qrrg7")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource("1_lxemw")
+
+[node name="left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-50, 768)
+shape = SubResource("RectangleShape2D_swgb6")
+
+[node name="right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(700, 768)
+shape = SubResource("RectangleShape2D_swgb6")

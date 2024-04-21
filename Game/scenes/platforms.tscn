@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2hbxshxikxy"]
+
+[ext_resource type="Script" path="res://scripts/platforms.gd" id="1_5vc7l"]
+[ext_resource type="Texture2D" uid="uid://rqwvr1mi7u84" path="res://art/50_giantgummybear.png" id="1_ail1e"]
+[ext_resource type="Texture2D" uid="uid://bwp8l8h4lwi8h" path="res://art/ground_stone_small_broken.png" id="1_tsmht"]
+[ext_resource type="Texture2D" uid="uid://c2wn1324hasbu" path="res://art/15_burger.png" id="2_6mexe"]
+[ext_resource type="Texture2D" uid="uid://crqjl0fryhgyn" path="res://art/Empty.png" id="3_h72oy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_brjmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ail1e")
+}],
+"loop": true,
+"name": &"Height",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6mexe")
+}],
+"loop": true,
+"name": &"Jumps",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h72oy")
+}],
+"loop": true,
+"name": &"Nothing",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80uvc"]
+size = Vector2(42, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vfgq"]
+size = Vector2(138, 43)
+
+[node name="platforms" type="StaticBody2D"]
+script = ExtResource("1_5vc7l")
+
+[node name="upgrade" type="Area2D" parent="."]
+
+[node name="texture" type="AnimatedSprite2D" parent="upgrade"]
+position = Vector2(152, 701)
+scale = Vector2(1.6875, 1.45313)
+sprite_frames = SubResource("SpriteFrames_brjmk")
+animation = &"Nothing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upgrade"]
+position = Vector2(151, 702)
+shape = SubResource("RectangleShape2D_80uvc")
+
+[node name="texture" type="Sprite2D" parent="."]
+position = Vector2(156.5, 742)
+scale = Vector2(0.675, 0.44)
+texture = ExtResource("1_tsmht")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(157.5, 742)
+shape = SubResource("RectangleShape2D_3vfgq")
+
+[connection signal="body_entered" from="upgrade" to="." method="_on_upgrade_body_entered"]
