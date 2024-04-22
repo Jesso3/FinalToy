@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwks424yepx85"]
+[gd_scene load_steps=10 format=3 uid="uid://dwks424yepx85"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bxmyh"]
 [ext_resource type="PackedScene" uid="uid://bc1va1lj5onyd" path="res://scenes/environment.tscn" id="1_wl3uh"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://d2hbxshxikxy" path="res://scenes/platforms.tscn" id="2_jnjc8"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="4_isixs"]
 [ext_resource type="Script" path="res://scripts/Score.gd" id="4_kgt1b"]
+[ext_resource type="Texture2D" uid="uid://c2wn1324hasbu" path="res://art/15_burger.png" id="5_u1s6s"]
+[ext_resource type="Texture2D" uid="uid://rqwvr1mi7u84" path="res://art/50_giantgummybear.png" id="5_xo36q"]
 [ext_resource type="AudioStream" uid="uid://k7wxhi75efx3" path="res://sound/Background.mp3" id="6_ivytx"]
 
 [node name="Main" type="Node2D"]
@@ -19,6 +21,22 @@ position = Vector2(6, 0)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(330, 502)
 script = ExtResource("4_isixs")
+
+[node name="Popups" type="Node2D" parent="."]
+
+[node name="Burger" type="PopupMenu" parent="Popups"]
+size = Vector2i(285, 50)
+item_count = 1
+item_0/text = "Burgers give you extra jumps"
+item_0/icon = ExtResource("5_u1s6s")
+item_0/id = 0
+
+[node name="Gummy" type="PopupMenu" parent="Popups"]
+size = Vector2i(331, 50)
+item_count = 1
+item_0/text = "Gummies allow you to jump higher"
+item_0/icon = ExtResource("5_xo36q")
+item_0/id = 0
 
 [node name="Score" type="RichTextLabel" parent="."]
 anchors_preset = 8

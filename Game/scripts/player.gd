@@ -31,7 +31,7 @@ func _physics_process(delta):
 		air = false
 		
 	for i in range(len(Global.platformsY)-1):
-		if Global.playerY <= Global.platformsY[i] and Global.playerY >= Global.platformsY[i+1]:
+		if Global.playerY < Global.platformsY[i] and Global.playerY > Global.platformsY[i+1]:
 			Global.score = i+1
 			
 	var direction = Input.get_axis("left", "right")

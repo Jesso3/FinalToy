@@ -15,8 +15,12 @@ func _ready():
 		y -= randi_range(300,400)
 
 func _physics_process(delta):
-	pass
-
+	if Global.firstBurger == 1:
+		$Popups/Burger.visible = true
+		Global.firstBurger = 2
+	if Global.firstGummy == 1:
+		$Popups/Gummy.visible = true
+		Global.firstGummy = 2
 
 func make_platform(height):
 	var new_platform = platform.instantiate()
