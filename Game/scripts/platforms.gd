@@ -22,11 +22,12 @@ func _process(delta):
 
 func _on_upgrade_body_entered(body):
 	if Global.touchedGround:
-		print("hi")
 		if state == 1:
 			Global.jumpVelocity -= 50
+			$PowerUp.play()
 		elif state == 2:
 			Global.maxJumps += 1
+			$PowerUp.play()
 		$upgrade/texture.play("Nothing")
 		state = 0
 		

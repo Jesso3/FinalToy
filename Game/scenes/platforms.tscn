@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2hbxshxikxy"]
+[gd_scene load_steps=10 format=3 uid="uid://d2hbxshxikxy"]
 
 [ext_resource type="Script" path="res://scripts/platforms.gd" id="1_5vc7l"]
 [ext_resource type="Texture2D" uid="uid://rqwvr1mi7u84" path="res://art/50_giantgummybear.png" id="1_ail1e"]
 [ext_resource type="Texture2D" uid="uid://bwp8l8h4lwi8h" path="res://art/ground_stone_small_broken.png" id="1_tsmht"]
 [ext_resource type="Texture2D" uid="uid://c2wn1324hasbu" path="res://art/15_burger.png" id="2_6mexe"]
 [ext_resource type="Texture2D" uid="uid://crqjl0fryhgyn" path="res://art/Empty.png" id="3_h72oy"]
+[ext_resource type="AudioStream" uid="uid://bdyo0e1l3f0g4" path="res://sound/powerUp.wav" id="6_bt6b2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_brjmk"]
 animations = [{
@@ -62,5 +63,10 @@ texture = ExtResource("1_tsmht")
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2(157.5, 742)
 shape = SubResource("RectangleShape2D_3vfgq")
+
+[node name="PowerUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_bt6b2")
+volume_db = -6.559
+pitch_scale = 0.75
 
 [connection signal="body_entered" from="upgrade" to="." method="_on_upgrade_body_entered"]

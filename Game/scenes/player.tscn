@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://bkylfawbyq13o"]
+[gd_scene load_steps=37 format=3 uid="uid://bkylfawbyq13o"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ba8hn"]
 [ext_resource type="Texture2D" uid="uid://hs0j2s1eu5is" path="res://art/Blue Idle - no slime.png" id="2_6d72u"]
 [ext_resource type="Texture2D" uid="uid://bd6t45rh03lwd" path="res://art/Blue Jump - no slime.png" id="2_xjy1r"]
+[ext_resource type="AudioStream" uid="uid://dwtlue8kmfujr" path="res://sound/jump.wav" id="4_d328h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nk1ew"]
 atlas = ExtResource("2_6d72u")
@@ -243,3 +244,7 @@ animation = &"Jump"
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(296.5, 1053.25)
 shape = SubResource("RectangleShape2D_lrwnk")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_d328h")
+volume_db = -11.35

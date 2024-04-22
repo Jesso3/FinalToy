@@ -25,6 +25,7 @@ func _physics_process(delta):
 		
 		velocity.y = Global.jumpVelocity
 		$sprite.play("Jump")
+		$Jump.play()
 		air = true
 		jumps += 1
 		
