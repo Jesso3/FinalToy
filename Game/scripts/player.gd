@@ -1,14 +1,9 @@
 extends CharacterBody2D
 
-
 var speed = 300.0
-
 var gravity = 980
-
 var jumps = 0
-
 var air = true
-
 
 func _physics_process(delta):
 
@@ -35,11 +30,10 @@ func _physics_process(delta):
 		if air == false: $sprite.play("Idle")
 		air = false
 		
-		if (Global.playerY < Global.highest-5 and Global.playerY < -100):
-			Global.highest = Global.playerY
-			Global.score += 1
-		
-		
+	for i in range(len(Global.platformsY)-1):
+		if Global.playerY <= Global.platformsY[i] and Global.playerY >= Global.platformsY[i+1]:
+			Global.score = i+1
+			
 	var direction = Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * speed

@@ -3,7 +3,7 @@ extends Node2D
 var platform = preload("res://scenes/platforms.tscn")
 var platformScript = preload("res://scripts/platforms.gd")
 var width
-var previousX = -0
+var previousX = 0
 
 func _ready():
 	width = get_viewport().size.x
@@ -11,6 +11,7 @@ func _ready():
 	var y = randi_range(-300,-400)
 	while y > -1000000:
 		make_platform(y)
+		Global.platformsY.append(y)
 		y -= randi_range(300,400)
 
 func _physics_process(delta):

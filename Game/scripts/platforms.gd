@@ -15,10 +15,6 @@ func _ready():
 		$upgrade/texture.play("Nothing")
 		state = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_upgrade_body_entered(body):
 	if Global.touchedGround:
