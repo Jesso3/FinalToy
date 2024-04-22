@@ -5,10 +5,10 @@ var state = -1 # 0 = nothing, 1 = height, 2 = jumps
 func _ready():
 	randomize()
 	var upgrade = randi_range(0,100)
-	if upgrade < 10:
+	if upgrade < 5:
 		$upgrade/texture.play("Height")
 		state = 1
-	elif upgrade >= 90:
+	elif upgrade >= 95:
 		$upgrade/texture.play("Jumps")
 		state = 2
 	else:
